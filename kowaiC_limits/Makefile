@@ -1,5 +1,5 @@
-PROGRAM	=	variable
-OBJS	=	variable.o
+PROGRAM	=	limits
+OBJS	=	limits.o
 SRCS	=	$(OBJS:%.o=%.c)
 CC	=	gcc
 CFLAGS	=	-g -Wall

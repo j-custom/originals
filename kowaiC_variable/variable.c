@@ -3,8 +3,9 @@
 int
 main(int argc, char *argv[])
 {
+  int number = 12345;
 
-
+  printf("number is %d\n", number);
 
   return (0);
 }
