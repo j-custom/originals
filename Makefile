@@ -1,4 +1,4 @@
-PROGRAM=fprintf1
+PROGRAM=makecsv
 CC=gcc
 
 $(PROGRAM):$(PROGRAM).c
