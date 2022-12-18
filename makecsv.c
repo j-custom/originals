@@ -1,14 +1,16 @@
 #include <stdio.h>
-//#include <stdlib.h>	//	exit()
+#include <stdlib.h>	//	exit(), srand() 
+#include <time.h>
 
 int
 main(int argc, char*argv[])
 {
-  
+  (void) srand((unsigned int)time(NULL));
+    
   FILE *fp;
   int x[10];
   // int y[5];
-  int y[10];
+  double y[10];
   int i;
   for (i = 0; i < 10; i++)
     {
@@ -16,7 +18,7 @@ main(int argc, char*argv[])
     }
   for (i = 0; i < 10; i++)
     {
-      y[i] = i * 5;
+      y[i] = rand()/(double)RAND_MAX * 10;
     }
   
   if ((fp = fopen("./samplecsv.csv", "a")) == NULL)
@@ -28,10 +30,12 @@ main(int argc, char*argv[])
 
   for (i = 0; i < 10; i++)
     {
-      printf("%d \t %d\n", x[i], y[i]);
-      fprintf(fp, "%d \t %d\n", x[i], y[i]);
+      printf("%d \t %f\n", x[i], y[i]);
+      fprintf(fp, "%d \t %f\n", x[i], y[i]);
 
     }
+
+  fclose(fp);
   return 0;
 }
 
