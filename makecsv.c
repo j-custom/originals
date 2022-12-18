@@ -30,8 +30,9 @@ main(int argc, char*argv[])
 
   for (i = 0; i < 10; i++)
     {
-      printf("%d \t %f\n", x[i], y[i]);
-      fprintf(fp, "%d \t %f\n", x[i], y[i]);
+      printf("%d,%f\n", x[i], y[i]);
+      //      fprintf(fp, "%d \t %f\n", x[i], y[i]);
+      fprintf(fp, "%d,%f\n", x[i], y[i]);
 
     }
 
