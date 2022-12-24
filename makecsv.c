@@ -2,36 +2,33 @@
 #include <stdlib.h>	//	exit(), srand() 
 #include <time.h>
 
+#define ROWS 1000
+
 int
 main(int argc, char*argv[])
 {
   (void) srand((unsigned int)time(NULL));
     
-  FILE *fp;
-  int x[10];
-  // int y[5];
-  double y[10];
+  FILE	 *fp;
+  int	 x[ROWS];
+  double y[ROWS];
   int i;
-  for (i = 0; i < 10; i++)
+  for (i = 0; i < ROWS; i++)
     {
       x[i] = i;
-    }
-  for (i = 0; i < 10; i++)
-    {
-      y[i] = rand()/(double)RAND_MAX * 10;
+      y[i] = rand()/(double)RAND_MAX * 100;
     }
   
-  if ((fp = fopen("./samplecsv.csv", "a")) == NULL)
+  if ((fp = fopen("./samplecsv3.csv", "a")) == NULL)
     {
       printf("file open error\n");
       //      exit(0);
       return -1;
     }  
 
-  for (i = 0; i < 10; i++)
+  for (i = 0; i < ROWS; i++)
     {
       printf("%d,%f\n", x[i], y[i]);
-      //      fprintf(fp, "%d \t %f\n", x[i], y[i]);
       fprintf(fp, "%d,%f\n", x[i], y[i]);
 
     }
