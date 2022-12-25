@@ -11,15 +11,20 @@ main(int argc, char*argv[])
     
   FILE	 *fp;
   int	 x[ROWS];
-  double y[ROWS];
+  double y1[ROWS];
+  double y2[ROWS];
+  double y3[ROWS];
+
   int i;
   for (i = 0; i < ROWS; i++)
     {
       x[i] = i;
-      y[i] = rand()/(double)RAND_MAX * 100;
+      y1[i] = rand()/(double)RAND_MAX * 10;
+      y2[i] = rand()/(double)RAND_MAX * 10;
+      y3[i] = rand()/(double)RAND_MAX * 10;
     }
   
-  if ((fp = fopen("./samplecsv3.csv", "a")) == NULL)
+  if ((fp = fopen("./samplecsv4.csv", "a")) == NULL)
     {
       printf("file open error\n");
       //      exit(0);
@@ -28,9 +33,8 @@ main(int argc, char*argv[])
 
   for (i = 0; i < ROWS; i++)
     {
-      printf("%d,%f\n", x[i], y[i]);
-      fprintf(fp, "%d,%f\n", x[i], y[i]);
-
+      printf("%d,%f,%f,%f\n", x[i], y1[i], y2[i], y3[i]);
+      fprintf(fp, "%d,%f,%f,%f\n", x[i], y1[i], y2[i], y3[i]);
     }
 
   fclose(fp);
