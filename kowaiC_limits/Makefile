@@ -1,9 +1,0 @@
-PROGRAM	=	limits
-OBJS	=	limits.o
-SRCS	=	$(OBJS:%.o=%.c)
-CC	=	gcc
-CFLAGS	=	-g -Wall
-LDFLAGS	=
-
-$(PROGRAM):$(OBJS)
-	$(CC) $(CFLAGS) $(LDFLAGS) -o $(PROGRAM) $(OBJS) $(LDLIBS)
