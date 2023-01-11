@@ -11,6 +11,9 @@
 #include <stdio.h>
 #include <stdlib.h>	/* for fopen(), exit() */
 
+/* macros */
+#define MAXLEN 1024
+
 /* prototype decl. */
 
 
@@ -20,8 +23,9 @@ main(int argc, char *argv[])
   /* 定数宣言など */
 
   FILE *fp;
-  int ch;
+  char string[MAXLEN];
 
+  
   /* エラー処理 */
   
   if(argc != 2)
@@ -38,12 +42,14 @@ main(int argc, char *argv[])
     }
   /* この下に実際の処理を書く */
 
-  while((ch=fgetc(fp)) != EOF)
+  while((fgets(string, sizeof(string), fp) != NULL))
     {
-      printf("%c", ch);
+      printf("%ld\t : %s\n", sizeof(string), string);
     }
   
   /* 後処理 */
+  printf("\n");
+  printf("\n");
   printf("\n");
   fclose(fp);
   return 0;
