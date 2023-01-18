@@ -10,6 +10,7 @@
 /* include files */
 #include <stdio.h>
 #include <stdlib.h>	/* for fopen(), exit() */
+#include <string.h>
 
 /* macros */
 #define MAXLEN 1024
@@ -23,8 +24,13 @@ main(int argc, char *argv[])
   /* 定数宣言など */
 
   FILE *fp;
-  char string[MAXLEN];
+  //  int ch = '\0';
+  //  int flag1 = 0;
+  //  int flag2 = 0;
 
+  char string[MAXLEN];
+  //  char *c;
+  int i;
   
   /* エラー処理 */
   
@@ -42,15 +48,46 @@ main(int argc, char *argv[])
     }
   /* この下に実際の処理を書く */
 
-  while((fgets(string, sizeof(string), fp) != NULL))
+  
+  while((fgets(string, sizeof(string), fp)) != NULL)
     {
-      printf("%ld\t : %s\n", sizeof(string), string);
+      i = 0;
+      while(string[i] != '\0')
+	{
+	  if(string[i] == ' ')
+	    {
+	      break;
+	    } else {
+	    
+	    if(string[i] != '/')
+	      {
+		break;
+	      } else {
+	      
+	      printf("%c", string[i]);
+	    }
+	  }
+	  i++;
+	}
+      printf("\n");
     }
+
+  
+  
+  /*
+    if ((c = strchr(string, '/')) != NULL)
+    {
+    printf("got /!\n");
+    }
+  */
+  
   
   /* 後処理 */
   printf("\n");
   printf("\n");
   printf("\n");
+  
+  
   fclose(fp);
   return 0;
 }
