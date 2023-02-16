@@ -17,7 +17,6 @@
 
 /* prototype decl. */
 
-
 int
 main(int argc, char *argv[])
 {
@@ -29,8 +28,8 @@ main(int argc, char *argv[])
   //  int flag2 = 0;
 
   char string[MAXLEN];
-  //  char *c;
-  int i;
+  char *c;
+  // int i;
   
   /* エラー処理 */
   
@@ -48,46 +47,42 @@ main(int argc, char *argv[])
     }
   /* この下に実際の処理を書く */
 
-  
+  printf("\n");
+
   while((fgets(string, sizeof(string), fp)) != NULL)
     {
-      i = 0;
-      while(string[i] != '\0')
+      
+      if ((c = strchr(string, '/')) != NULL)
 	{
-	  if(string[i] == ' ')
-	    {
-	      break;
-	    } else {
-	    
-	    if(string[i] != '/')
+	  printf("got it! /'s address is %p.\n", c);
+	}
+      
+      /*      i = 0;
+	      while(string[i] != '\0')
 	      {
-		break;
+	      if(string[i] == ' ')
+	      {
+	      break;
+	      } else {
+	      
+	      if(string[i] != '/')
+	      {
+	      break;
 	      } else {
 	      
 	      printf("%c", string[i]);
-	    }
-	  }
-	  i++;
-	}
-      printf("\n");
+	      }
+	      }
+	      i++;
+	      }
+	      printf("\n");
+      */
     }
-
-  
-  
-  /*
-    if ((c = strchr(string, '/')) != NULL)
-    {
-    printf("got /!\n");
-    }
-  */
-  
   
   /* 後処理 */
-  printf("\n");
-  printf("\n");
-  printf("\n");
   
-  
+  printf("\n");
   fclose(fp);
+
   return 0;
 }
