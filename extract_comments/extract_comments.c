@@ -5,6 +5,7 @@
 //	抜き出してくれるプログラム				//
 //								//
 //	started 2023/01/05					//
+//	1.0     2023/02/17					//
 //////////////////////////////////////////////////////////////////
 
 /* include files */
@@ -17,6 +18,36 @@
 
 /* prototype decl. */
 
+// returns 0 if '/''*' is else returns non-zero.
+int find_begin(char *s)
+{
+  int i = 0;
+  while(s[i] != '\0')
+    {
+      if((s[i] == '/') && (s[i + 1] == '*'))
+	{
+	  return 0;
+	}
+      i++;
+    }
+  return 1;
+}
+
+// returns 0 if '*''/' is else returns non-zero.
+int find_end(char *s)
+{
+  int i = 0;
+  while(s[i] != '\0')
+    {
+      if((s[i] == '*') && (s[i + 1] == '/'))
+	{
+	  return 0;
+	}
+      i++;
+    }
+  return 1;
+}
+
 int
 main(int argc, char *argv[])
 {
@@ -28,8 +59,8 @@ main(int argc, char *argv[])
   //  int flag2 = 0;
 
   char string[MAXLEN];
-  char *c;
-  // int i;
+  //  char *c;
+  //  int i;
   
   /* エラー処理 */
   
@@ -46,43 +77,21 @@ main(int argc, char *argv[])
       exit(1);
     }
   /* この下に実際の処理を書く */
-
-  printf("\n");
-
+  
   while((fgets(string, sizeof(string), fp)) != NULL)
     {
-      
-      if ((c = strchr(string, '/')) != NULL)
+      if((find_begin(string) == 0) && (find_end(string) == 0))
 	{
-	  printf("got it! /'s address is %p.\n", c);
-	}
-      
-      /*      i = 0;
-	      while(string[i] != '\0')
-	      {
-	      if(string[i] == ' ')
-	      {
-	      break;
-	      } else {
-	      
-	      if(string[i] != '/')
-	      {
-	      break;
-	      } else {
-	      
-	      printf("%c", string[i]);
-	      }
-	      }
-	      i++;
-	      }
-	      printf("\n");
-      */
+	  printf("%s", string);
+	} else {;}
     }
   
-  /* 後処理 */
+  //
+  //      if ((c = strchr(string, '/')) != NULL)
+  //	{
+  //	  printf("got /! It's address is %p. \n", c);
   
-  printf("\n");
+  /* 後処理 */
   fclose(fp);
-
   return 0;
 }
