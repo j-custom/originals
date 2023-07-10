@@ -1,0 +1,3 @@
+TARGET = out
+HEADER = $(HEADER).h
+$(TARGET): $(TARGET).c 
