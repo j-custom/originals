@@ -1,3 +1,4 @@
 TARGET = out
-HEADER = $(HEADER).h
-$(TARGET): $(TARGET).c 
+HEADER = header
+$(TARGET): $(TARGET).c $(HEADER).h
+	$(CC) $(TARGET).c -o $(TARGET)
