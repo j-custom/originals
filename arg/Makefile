@@ -2,4 +2,7 @@ TARGET = out
 HEADER = header
 CC = gcc
 $(TARGET): $(TARGET).c $(HEADER).h
-	$(CC) $(TARGET).c -o $(TARGET)
+	$(CC) $(TARGET).c -o $(TARGET) -Wall
+clean:
+	rm target
+
