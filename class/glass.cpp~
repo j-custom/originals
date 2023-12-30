@@ -1,0 +1,20 @@
+#include <iostream>
+using namespase std;
+
+class Glass
+{
+  int nakami;
+public:
+  Glass():nakami(10){}
+  void dasu(){nakami -= 2;
+  }
+};
+
+int main(){
+
+  Glass glass;
+  glass.dasu ();
+  
+  return 0;
+}
+

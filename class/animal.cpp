@@ -14,7 +14,11 @@ public:
 
 int main(){
 
-  Neko tom;
+  std::string s;
+  std::cout << "input name." << std::endl;
+  std::cin >> s;
+  
+  Neko tom(s);
   tom.bark();
   
   return 0;
